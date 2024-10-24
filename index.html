@@ -1,295 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Abhishek Kumar</title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>Mobile QR Image Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+        #uploadForm {
+            margin: 20px 0;
+        }
+        #imageInput {
+            margin-bottom: 15px;
+        }
+        #preview {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 10px auto;
+            display: none;
+            border-radius: 8px;
+        }
+        #qrcode {
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+        }
+        #status {
+            margin: 10px 0;
+            color: #666;
+        }
+        #imageUrl {
+            word-break: break-all;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00BCA3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #018674;
+        }
+        #error {
+            color: red;
+            margin: 10px 0;
+            display: none;
+        }
+    </style>
 </head>
-
 <body>
-
-    <!-- header section starts  -->
-
-    <header class="header">
-
-        <div class="user">
-            <img src="image/abhi-img.jpg" alt="abhi-img">
-            <h3>Abhishek Kumar</h3>
-            <p>front-end developer</p>
-        </div>
-
-        <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#about">about</a>
-            <a href="#education">education</a>
-            <a href="#portfolio">portfolio</a>
-            <a href="#contact">contact</a>
-        </nav>
-
-    </header>
-
-    <!-- header section ends -->
-
-    <div id="menu-btn" class="fas fa-bars"></div>
-
-    <!-- theme toggler  -->
-
-    <div id="theme-toggler" class="fas fa-moon"></div>
-
-    <!-- home section starts  -->
-
-    <section class="home" id="home">
-
-        <div class="content">
-            <h3>Abhishek Kumar</h3>
-            <p>i am a front-end developer</p>
-            <a href="resume.pdf" class="btn" download>download CV</a>
-        </div>
-
-        <div class="share">
-            <!-- <a href="#" class="fab fa-facebook-f" target="_blank"></a>
-        <a href="#" class="fab fa-twitter" target="_blank"></a>
-        <a href="#" class="fab fa-instagram" target="_blank"></a> -->
-            <a href="https://api.whatsapp.com/send?phone=7781093866&text=Hey Abhi!." class="fab fa-whatsapp"
-                target="_blank"></a>
-            <a href="mailto:js.kumarabhishek@gmail.com" class="fas fa-envelope" target="_blank"></a>
-            <a href="https://www.linkedin.com/in/js-kumarabhi" class="fab fa-linkedin" target="_blank"></a>
-            <a href="https://github.com/js-kumarabhi" class="fab fa-github" target="_blank"></a>
-        </div>
-
-    </section>
-
-    <!-- home section ends -->
-
-    <!-- about section starts  -->
-
-    <section class="about" id="about">
-
-        <h1 class="heading"> <span>about</span> me </h1>
-
-        <div class="row">
-
-            <div class="box-container">
-                <div class="box">
-                    <h3>1.6+</h3>
-                    <p>years of experience</p>
-                </div>
-                <div class="box">
-                    <h3>07+</h3>
-                    <p>project completed</p>
-                </div>
-                <div class="box">
-                    <h3>03+</h3>
-                    <p>Months UI Full Stack Web training - Real time Project from Naresh i Technologies, Hyderabad.</p>
-                </div>
-                <!-- <div class="box">
-                <h3>04+</h3>
-                <p>JavaScript Project completed from Great Learning.</p>
-            </div> -->
-            </div>
-
-            <div class="content">
-                <h3>my name is <span>Abhishek Kumar</span></h3>
-                <p>i have completed BCA from magadh university in 2020. Looking for opportunities where i can contribute
-                    my skills with upcoming technologies. I have deep knowledge about HTML, CSS, javascript, MongoDB,
-                    node js, react js, bootstrap and tailwindcss.</p>
-                <p><strong>location :</strong> bihar, india. <strong> phone :</strong> +91 9123 137 855.</p>
-                <p><strong>date of birth :</strong> 13/03/1998. <strong> language :</strong> hindi, english.</p>
-                <a href="#" class="btn">contact me</a>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="progress">
-                <h3> nodejs <span>65%</span> </h3>
-                <div class="bar bar-1-1"><span></span></div>
-                <h3> reactjs <span>75%</span> </h3>
-                <div class="bar bar-1-2"><span></span></div>
-                <h3> responsive design <span>80%</span> </h3>
-                <div class="bar bar-1-3"><span></span></div>
-                <h3> MongoDB <span>60%</span> </h3>
-                <div class="bar bar-1-4"><span></span></div>
-            </div>
-
-            <div class="progress">
-                <h3> HTML <span>90%</span> </h3>
-                <div class="bar bar-2-1"><span></span></div>
-                <h3> CSS <span>70%</span> </h3>
-                <div class="bar bar-2-2"><span></span></div>
-                <h3> javascript <span>85%</span> </h3>
-                <div class="bar bar-2-3"><span></span></div>
-                <h3> bootstrap/tailwindcss <span>70%</span> </h3>
-                <div class="bar bar-2-4"><span></span></div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- about section ends -->
-
-    <!-- education section starts  -->
-
-    <section class="education" id="education">
-
-        <h1 class="heading"> my <span>education</span> </h1>
-
-        <div class="box-container">
-
-            <!-- <div class="box">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>MCA - Master in Computer Application</h3>
-            <p>from magadh university (Not completed yet.)</p>
-        </div> -->
-
-            <div class="box">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>BCA - Bachelor's in Computer Application</h3>
-                <p>i have completed Bachelor in Computer Application from magadh university in session(2017 - 2020) with
-                    77% result.</p>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-school"></i>
-                <h3>12th standard</h3>
-                <p>completed from BSEB patna with 62% marks.</p>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-book"></i>
-                <h3>10th standard</h3>
-                <p>also, completed from BSEB patna with 72% marks.</p>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-project-diagram"></i>
-                <h3>JavaScript Project Development</h3>
-                <p>I have completed Certification training on JavaScript Project from Great Learning.</p>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-code"></i>
-                <h3>UI Full Stack Web Development</h3>
-                <p>Training - Real Time Project From Naresh I Technologies, Hyderabad.</p>
-            </div>
-
-            <div class="box">
-                <i class="fab fa-wordpress"></i>
-                <h3>wordpress</h3>
-                <p>self learned in spare time</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- education section ends -->
-
-    <!-- portfolio section starts  -->
-
-    <section class="portfolio" id="portfolio">
-
-        <h1 class="heading"> my <span>portfolio</span> </h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <img src="image/img-4.png" alt="">
-                <div class="content">
-                    <h3>medianetra.in</h3>
-                    <p>Build the best product that creates the most value for our customers, use business to inspire and
-                        implement environmentally friendly solutions.</p>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="image/img-3.png" alt="">
-                <div class="content">
-                    <h3>itilakhipur.org.in</h3>
-                    <p>We are a skills and industry focused training and development institute located at the suburbs of goalpara Assam town.</p>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="image/img-5.png" alt="">
-                <div class="content">
-                    <h3>regible.in</h3>
-                    <p>Regible helps small business owners and start-ups solving legal compliance related to starting,
-                        establishing and running their businesses.</p>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="image/img-6.png" alt="">
-                <div class="content">
-                    <h3>gyanpravah.org</h3>
-                    <p>Gyan Pravah is non-government organizations (NGO) registered under government of Bihar Reg No – 02/2022 date on date -22/02/2022.</p>
-                </div>
-            </div>
-
-
-            <div class="box">
-                <img src="image/img-1.png" alt="">
-                <div class="content">
-                    <h3>kashishacademy.in</h3>
-                    <p>We ensure that you achieve your goals! The platform for communication skills, kashish's the
-                        english academy, offers an effective learning environment to help students get ready for
-                        realistic real life situations</p>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="image/img-2.png" alt="">
-                <div class="content">
-                    <h3>grabgeotech.com</h3>
-                    <p>GRAB GEOTECH (OPC) PVT. LTD. is an ISO 9001:2015 certified GIS & Remote Sensing Training
-                        institute having wide range of experiences in technical and educational services related to
-                        Geospatial sector.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- portfolio section ends -->
-
-    <!-- contact section starts -->
-
-    <section class="contact" id="contact">
-
-        <h1 class="heading"> <span>contact</span> me </h1>
-
-        <form action="https://formspree.io/f/xlekjbbo" method="POST">
-            <input type="text" name="name" placeholder="Name" class="box" required>
-            <input type="email" name="email" placeholder="Email" class="box" required>
-            <input type="text" name="subject" placeholder="Subject" class="box" required>
-            <textarea name="message" class="box" placeholder="Your message" required id="" cols="30"
-                rows="10"></textarea>
-            <input type="submit" value="send message" class="btn">
+    <div class="container">
+        <h1>Mobile QR Image Generator</h1>
+        <form id="uploadForm">
+            <input type="file" id="imageInput" accept="image/*">
+            <img id="preview" alt="Preview">
+            <div id="status"></div>
+            <button type="button" id="generateBtn">Generate QR Code</button>
         </form>
+        <div id="error"></div>
+        <div id="qrcode"></div>
+        <div id="imageUrl"></div>
+    </div>
 
-    </section>
+    <script>
+        const form = document.getElementById('uploadForm');
+        const imageInput = document.getElementById('imageInput');
+        const preview = document.getElementById('preview');
+        const status = document.getElementById('status');
+        const qrcodeDiv = document.getElementById('qrcode');
+        const generateBtn = document.getElementById('generateBtn');
+        const error = document.getElementById('error');
+        const imageUrl = document.getElementById('imageUrl');
 
-    <!-- contact section ends -->
+        // Preview image
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = 'block';
+                status.textContent = 'Image selected. Click Generate QR Code.';
+                error.style.display = 'none';
+            }
+        });
 
-    <div class="credits"> Copyright &#169; 2023 | developed by : <span>abhishek kumar</span></div>
+        // Generate QR code
+        generateBtn.addEventListener('click', async function() {
+            const file = imageInput.files[0];
+            if (!file) {
+                error.textContent = 'Please select an image first.';
+                error.style.display = 'block';
+                return;
+            }
 
+            status.textContent = 'Generating QR Code...';
+            
+            try {
+                // Clear previous QR code
+                qrcodeDiv.innerHTML = '';
+                
+                // Create a simple URL or ID that can be easily shared
+                // In a real application, you would upload to a server and get a URL
+                // For demo, we'll use a timestamp as a unique identifier
+                const timestamp = new Date().getTime();
+                const demoUrl = `https://example.com/images/${timestamp}`;
+                
+                // Generate QR code with the URL
+                new QRCode(qrcodeDiv, {
+                    text: demoUrl,
+                    width: 200,
+                    height: 200,
+                    correctLevel: QRCode.CorrectLevel.H
+                });
 
-    <!-- custom js file link  -->
-    <script src="js/script.js"></script>
-
+                imageUrl.textContent = `Demo URL: ${demoUrl}`;
+                imageUrl.style.display = 'block';
+                status.textContent = 'QR Code generated! Scan with your phone camera.';
+            } catch (err) {
+                error.textContent = 'Error generating QR code: ' + err.message;
+                error.style.display = 'block';
+            }
+        });
+    </script>
 </body>
-
 </html>
